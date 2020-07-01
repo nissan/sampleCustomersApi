@@ -1,6 +1,6 @@
-
 using System;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 
 namespace Sample.Customers.Api.Models
 {
@@ -11,6 +11,16 @@ namespace Sample.Customers.Api.Models
         public String MiddleName { get; set; }
         public String FirstName { get; set; }
         public DateTime DateOfBirth { get; set; }
+    }
+
+    public class CustomerContext : DbContext
+    {
+        public CustomerContext(DbContextOptions<CustomerContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Customer> Customers { get; set; }
     }
 
     public class CustomerValidator : AbstractValidator<Customer>
