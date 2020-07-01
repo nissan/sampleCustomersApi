@@ -40,7 +40,9 @@ namespace Sample.Customers.Api.Models
         }
         private bool BeAValidDate(DateTime dateOfBirth)
         {
-            return dateOfBirth <= DateTime.Today;
+            return (
+                dateOfBirth <= DateTime.Today
+                );
         }
     }
 }
