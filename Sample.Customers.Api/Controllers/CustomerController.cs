@@ -43,7 +43,6 @@ namespace Sample.Customers.Api.Controllers
             _context.Customers.Add(customer);
             await _context.SaveChangesAsync();
 
-            //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
             return CreatedAtAction(nameof(GetById), new { id = customer.Id }, customer);
         }
 
